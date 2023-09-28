@@ -1,0 +1,90 @@
+# примеры API-запросов
+
+@baseUrl = http://eeee.one/api/v1
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Test product from VSCODE",
+  "description": "Desc~;"
+}
+
+###
+
+# получение продуктов
+GET {{baseUrl}}/products/?ordering=-id
+Content-Type: application/json
+
+###
+
+# обновление продукта
+PATCH {{baseUrl}}/products/2/
+Content-Type: application/json
+
+{
+  "description": "update desc2"
+}
+
+###
+
+# удаление продукта
+DELETE {{baseUrl}}/products/25/
+Content-Type: application/json
+
+###
+
+# поиск продуктов по названию и описанию
+GET {{baseUrl}}/products/?search=помидор
+Content-Type: application/json
+
+
+
+###
+
+# создание склада
+POST {{baseUrl}}/stocks/
+Content-Type: application/json
+
+{
+  "address": "sklad addr0099",
+  "positions": [
+  ]
+}
+
+###
+
+# обновление склада
+PATCH {{baseUrl}}/stocks/1/
+Content-Type: application/json
+
+{
+  "address": "new addr r",
+  "positions": [
+    {
+      "product": 1,
+      "quantity": 3,
+      "price": 411.0
+    }
+  ]
+}
+
+###
+GET {{baseUrl}}/stocks/?id=15
+Content-Type: application/json
+
+###
+
+# поиск складов, где есть определенный продукт
+GET {{baseUrl}}/stocks/?address=addr16
+Content-Type: application/json
+
+###
+GET {{baseUrl}}/stocks/?ordering=positions
+Content-Type: application/json
+
+###
+GET {{baseUrl}}/stocks/?search=333.30
+Content-Type: application/json
+
